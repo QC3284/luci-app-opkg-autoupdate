@@ -1,16 +1,22 @@
+# 插件的基础名称
 PO = opkg_autoupdate
 
+# 插件的描述
 PV = 1.0
 
+# 插件的完整名称，通过将"luci-app-"前缀与PO变量的值拼接而成
 PKG_NAME:=luci-app-$(PO)
 
+# 插件的依赖包
 LUCI_TITLE:=Luci - OPKG Auto Update
 LUCI_DEPENDS:=+luci
 
+# 插件适用于所有架构
 LUCI_PKGARCH:=all
 
 include $(TOPDIR)/rules.mk
 
+# 插件的源代码和编译后的文件
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
@@ -27,7 +33,6 @@ define Package/$(PKG_NAME)/description
 endef
 
 define Build/Prepare
-	$(CP) ./src/* $(PKG_BUILD_DIR)/
 endef
 
 define Build/Configure
