@@ -1,0 +1,11 @@
+<%inherit file="/usr/lib/lua/luci/view/admin_system/index.htm"/>
+<%-
+local t,a
+t = Map("luci", translate("OPKG Auto Update"), translate("Here you can refresh the package cache."))
+a = t:section(TypedSection, "luci", "luci", translate("OPKG Auto Update"))
+a.anonymous = true
+a.addremove = false
+
+a:option(Button, "refresh", translate("Refresh Cache"))
+a.anonymous = true
+-%>
